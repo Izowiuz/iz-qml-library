@@ -1,0 +1,38 @@
+<RCC>
+    <qresource prefix="/">
+        <file>include/IzLibrary/JS/IzBusy.js</file>
+        <file>include/IzLibrary/JS/IzMark.js</file>
+        <file>include/IzLibrary/JS/IzToast.js</file>
+        <file>include/IzLibrary/QML/IzBoxContainer.qml</file>
+        <file>include/IzLibrary/QML/IzBusy.qml</file>
+        <file>include/IzLibrary/QML/IzButton.qml</file>
+        <file>include/IzLibrary/QML/IzCheckBox.qml</file>
+        <file>include/IzLibrary/QML/IzCheckDelegate.qml</file>
+        <file>include/IzLibrary/QML/IzComboBox.qml</file>
+        <file>include/IzLibrary/QML/IzDatePicker.qml</file>
+        <file>include/IzLibrary/QML/IzDraggablePopup.qml</file>
+        <file>include/IzLibrary/QML/IzFileDialog.qml</file>
+        <file>include/IzLibrary/QML/IzGroupBox.qml</file>
+        <file>include/IzLibrary/QML/IzInteractiveImage.qml</file>
+        <file>include/IzLibrary/QML/IzItemDelegate.qml</file>
+        <file>include/IzLibrary/QML/IzKillswitch.qml</file>
+        <file>include/IzLibrary/QML/IzMark.qml</file>
+        <file>include/IzLibrary/QML/IzMenuItem.qml</file>
+        <file>include/IzLibrary/QML/IzModalBlur.qml</file>
+        <file>include/IzLibrary/QML/IzPopupText.qml</file>
+        <file>include/IzLibrary/QML/IzRadioButton.qml</file>
+        <file>include/IzLibrary/QML/IzSpinBox.qml</file>
+        <file>include/IzLibrary/QML/IzSQLError.qml</file>
+        <file>include/IzLibrary/QML/IzSQLFilter.qml</file>
+        <file>include/IzLibrary/QML/IzSwitch.qml</file>
+        <file>include/IzLibrary/QML/IzTabButton.qml</file>
+        <file>include/IzLibrary/QML/IzText.qml</file>
+        <file>include/IzLibrary/QML/IzTextArea.qml</file>
+        <file>include/IzLibrary/QML/IzTextField.qml</file>
+        <file>include/IzLibrary/QML/IzTextInput.qml</file>
+        <file>include/IzLibrary/QML/IzToast.qml</file>
+        <file>include/IzLibrary/QML/IzTooltip.qml</file>
+        <file>res/font/materialdesignicons-webfont.ttf</file>
+        <file>res/png/empty-image.png</file>
+    </qresource>
+</RCC>

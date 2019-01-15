@@ -1,0 +1,7 @@
+module IzLibrary
+plugin IzLibraryPlugin
+typeinfo IzLibrary.qmltypes
+classname QmlPlugin
+IzToast 1.0 qrc:///include/IzLibrary/JS/IzToast.js
+IzMark 1.0 qrc:///include/IzLibrary/JS/IzMark.js
+IzBusy 1.0 qrc:///include/IzLibrary/JS/IzBusy.js

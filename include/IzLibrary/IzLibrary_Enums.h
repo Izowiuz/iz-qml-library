@@ -1,0 +1,4 @@
+﻿#ifndef IZLIBRARY_ENUMS_H
+#define IZLIBRARY_ENUMS_H
+
+#endif // IZLIBRARY_ENUMS_H
