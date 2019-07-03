@@ -34,5 +34,7 @@
         <file>include/IzLibrary/QML/IzTooltip.qml</file>
         <file>res/font/materialdesignicons-webfont.ttf</file>
         <file>res/png/empty-image.png</file>
+        <file>include/IzLibrary/JS/IzObjectCreator.js</file>
+        <file>include/IzLibrary/QML/IzRectangle.qml</file>
     </qresource>
 </RCC>

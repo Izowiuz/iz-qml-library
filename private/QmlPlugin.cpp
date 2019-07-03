@@ -39,6 +39,7 @@ void IzLibrary::QmlPlugin::registerTypes(const char* uri)
 	qmlRegisterType(QUrl(QStringLiteral("qrc:/include/IzLibrary/QML/IzKillswitch.qml")), uri, 1, 0, "IzKillswitch");
 	qmlRegisterType(QUrl(QStringLiteral("qrc:/include/IzLibrary/QML/IzDraggablePopup.qml")), uri, 1, 0, "IzDraggablePopup");
 	qmlRegisterType(QUrl(QStringLiteral("qrc:/include/IzLibrary/QML/IzInteractiveImage.qml")), uri, 1, 0, "IzInteractiveImage");
+	qmlRegisterType(QUrl(QStringLiteral("qrc:/include/IzLibrary/QML/IzRectangle.qml")), uri, 1, 0, "IzRectangle");
 }
 
 void IzLibrary::QmlPlugin::initializeEngine(QQmlEngine* engine, const char* uri)

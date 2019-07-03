@@ -11,6 +11,9 @@ ColumnLayout {
 	property string actionToTake: "UNDEFINED"
 	property string sqlError: "UNDEFINED"
 
+	implicitHeight: 480
+	implicitWidth: 640
+
 	Component.onCompleted: {
 		root.errorTitle = dialog.parameters["errorTitle"];
 		root.errorDescription = dialog.parameters["errorDescription"];

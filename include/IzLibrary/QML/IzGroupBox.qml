@@ -33,6 +33,7 @@ GroupBox {
 
 		Rectangle {
 			color: "transparent"
+			radius: 2
 			border.color: root.activeFocus ? Material.accent : (root.Material.theme === Material.Dark ?
 							  Material.color(Material.Grey, Material.Shade700)
 							: Material.color(Material.Grey, Material.Shade300))

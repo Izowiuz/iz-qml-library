@@ -1,47 +1,67 @@
 ﻿import QtQuick 2.12
+import QtQuick.Layouts 1.12
 import QtQuick.Controls.Material 2.12
 import QtQuick.Controls 2.12
-import QtGraphicalEffects 1.12
+
+import IzLibrary 1.0
 
 AbstractButton {
 	id: root
 
-	implicitHeight: 40
-	implicitWidth: 40
+	implicitHeight: display === AbstractButton.IconOnly ? 26 : buttonContent.implicitHeight
+	implicitWidth: display === AbstractButton.IconOnly ? 26 : buttonContent.implicitWidth
 
 	property color currentColor: root.Material.theme === Material.Dark
 								 ? root.Material.color(Material.Grey)
 								 : root.Material.color(Material.Grey, Material.Shade700)
-	property string fontIcon: ""
-	property string tooltip: ""
+	property string fontIcon
+	property string tooltip
 
 	focus: true
+	font.pointSize: 8
+	display: AbstractButton.IconOnly
 	ToolTip.visible: root.hovered
-	ToolTip.text: root.tooltip
+	ToolTip.text: root.tooltip === "" ? root.text : root.tooltip
 	ToolTip.delay: 1500
 
-	indicator: Text {
-		text: root.fontIcon
-		textFormat: Qt.PlainText
-		font.family: "Material Design Icons"
-		font.pixelSize: root.height
-		color: root.currentColor
-		antialiasing: false
-	}
+	contentItem: GridLayout {
+		id: buttonContent
 
-	ColorOverlay {
-		id: indicatorOverlay
+		rows: display === AbstractButton.TextUnderIcon ? 2 : 1
+		columns: display === AbstractButton.TextBesideIcon ? 2 : 1
+		rowSpacing: 0
+		columnSpacing: 0
 
-		anchors.fill: indicator
-		source: indicator
-		color: root.currentColor
-		smooth: true
+		Text {
+			Layout.alignment: Qt.AlignCenter
+
+			visible: display === AbstractButton.TextOnly ? false : true
+			text: root.fontIcon
+			textFormat: Qt.PlainText
+			font.family: "Material Design Icons"
+			font.pixelSize: display === AbstractButton.IconOnly ? root.height : 26
+			color: root.currentColor
+			antialiasing: false
+		}
+
+		IzText {
+			Layout.alignment: Qt.AlignCenter
+
+			visible: display === AbstractButton.IconOnly ? false : true
+			text: root.text
+			font: root.font
+			opacity: root.enabled ? 1.0 : 0.3
+			color: root.currentColor
+			horizontalAlignment: Text.AlignHCenter
+			verticalAlignment: Text.AlignVCenter
+			elide: Text.ElideRight
+		}
 	}
 
 	states: [
 		State {
 			name: "active"
-			when: root.activeFocus && !root.pressed
+			when: root.activeFocus && !root.pressed && !root.hovered
 			PropertyChanges {
 				target: root
 				currentColor: root.Material.accent

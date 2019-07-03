@@ -48,6 +48,8 @@ add_library(${PROJECT_NAME}Plugin SHARED
 	${QRC_FILE}
 )
 
+set_target_properties(${PROJECT_NAME}Plugin PROPERTIES PREFIX "")
+
 # include directories for target
 target_include_directories(${PROJECT_NAME}Plugin
 	PUBLIC

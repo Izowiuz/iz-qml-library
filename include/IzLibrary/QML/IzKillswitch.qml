@@ -6,6 +6,9 @@ import IzLibrary 1.0
 Item {
 	id: root
 
+	implicitHeight: 150
+	implicitWidth: 42
+
 	property int deadline: 10000
 
 	Component.onCompleted: {

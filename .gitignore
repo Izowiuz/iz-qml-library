@@ -26,3 +26,5 @@ iz-qml-library.qbs.user
 CMakeLists.txt.user
 CMakeLists.txt.user.4.8-pre1
 *.20
+.vs
+CMakeLists.txt.user.4.9-pre1

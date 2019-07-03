@@ -59,9 +59,7 @@ Popup {
 	contentItem: Rectangle {
 		id: backgroundRectangle
 
-		color: root.parent.Material.theme === Material.Dark ?
-			   Material.color(Material.Grey, Material.Shade800)
-			 : "white"
+		color: root.parent.Material.background
 		border.color: root.setBorderColor()
 
 		IzText {
