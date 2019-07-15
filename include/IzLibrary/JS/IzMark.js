@@ -3,6 +3,7 @@
 
 function mark(target, color) {
 	var component = Qt.createComponent("qrc:/include/IzLibrary/QML/IzMark.qml");
+
 	if (component.status === Qml.Component.Ready) {
 		finishCreation(component, target, color);
 	} else {
@@ -17,6 +18,7 @@ function finishCreation(component, target, color) {
 												"target": target,
 												"border.color": color
 											});
+
 		if (object === null) {
 			console.log("Error creating mark.");
 		}

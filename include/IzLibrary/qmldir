@@ -1,4 +1,4 @@
-module IzLibrary
+﻿module IzLibrary
 plugin IzLibraryPlugin
 typeinfo IzLibrary.qmltypes
 classname QmlPlugin

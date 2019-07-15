@@ -3,6 +3,7 @@
 
 function show(parent, message, messageType) {
 	var component = Qt.createComponent("qrc:/include/IzLibrary/QML/IzToast.qml");
+
 	if (component.status === Qml.Component.Ready) {
 		finishCreation(component, parent, message, messageType);
 	} else {

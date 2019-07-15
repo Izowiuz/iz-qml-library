@@ -36,5 +36,6 @@
         <file>res/png/empty-image.png</file>
         <file>include/IzLibrary/JS/IzObjectCreator.js</file>
         <file>include/IzLibrary/QML/IzRectangle.qml</file>
+        <file>include/IzLibrary/qmldir</file>
     </qresource>
 </RCC>

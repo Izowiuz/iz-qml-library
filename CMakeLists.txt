@@ -16,9 +16,14 @@ endif()
 
 # Qt's modules
 find_package(Qt5 COMPONENTS Quick Qml REQUIRED)
+find_package(Qt5QuickCompiler)
 
 # Qt's rcc files
 qt5_add_resources(QRC_FILE
+	"qml_src.qrc"
+)
+
+qtquick_compiler_add_resources(QRC_FILE
 	"qml_src.qrc"
 )
 
@@ -82,7 +87,8 @@ target_compile_definitions(${PROJECT_NAME}Plugin
 install (TARGETS ${PROJECT_NAME}Plugin
 	RUNTIME DESTINATION ${CMAKE_BUILD_TYPE}/${Qt5Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}/${PROJECT_NAME}
 )
-install (FILES "private/qmldir"
+
+install (FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/${PROJECT_NAME}/qmldir"
 	DESTINATION ${CMAKE_BUILD_TYPE}/${Qt5Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}/${PROJECT_NAME}
 )
 
