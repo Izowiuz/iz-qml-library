@@ -8,7 +8,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
 		-nonrelocatable
 		${PROJECT_NAME}
 		${PROJECT_VERSION}
-		${CMAKE_INSTALL_PREFIX}/${CMAKE_BUILD_TYPE}/${Qt5Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}
+		${CMAKE_INSTALL_PREFIX}/${CMAKE_BUILD_TYPE}/${Qt6Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}
 		OUTPUT_VARIABLE qmlplugindump_output
 		RESULT_VARIABLE qmlplugindump_result
 	)
@@ -16,7 +16,7 @@ if (CMAKE_BUILD_TYPE STREQUAL "Release")
 	if(qmlplugindump_result)
 		message(WARNING "qmlplugindump exited with code ${qmlplugindump_result}")
 	else()
-		file(WRITE ${CMAKE_INSTALL_PREFIX}/${CMAKE_BUILD_TYPE}/${Qt5Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}/${PROJECT_NAME}/${PROJECT_NAME}.qmltypes "${qmlplugindump_output}")
+		file(WRITE ${CMAKE_INSTALL_PREFIX}/${CMAKE_BUILD_TYPE}/${Qt6Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}/${PROJECT_NAME}/${PROJECT_NAME}.qmltypes "${qmlplugindump_output}")
 		message("Qmltypes file generated.")
 	endif()
 endif()
