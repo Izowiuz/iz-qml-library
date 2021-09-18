@@ -1,17 +1,19 @@
 ﻿#pragma once
 
-#include <QIntValidator>
+#include <QDoubleValidator>
+#include <qqml.h>
 
 namespace IzLibrary
 {
-    class IntValidator : public QIntValidator
+    class DoubleValidator : public QDoubleValidator
     {
         Q_OBJECT
-        Q_DISABLE_COPY(IntValidator)
+        Q_DISABLE_COPY(DoubleValidator)
+        QML_ELEMENT
 
     public:
         // ctor
-        explicit IntValidator(QObject* parent = nullptr);
+        explicit DoubleValidator(QObject* parent = nullptr);
 
         // QValidator interface
         State validate(QString& s, int& position) const override;

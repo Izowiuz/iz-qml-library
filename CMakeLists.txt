@@ -1,5 +1,5 @@
 ﻿# cmake minumum version
-cmake_minimum_required(VERSION 3.10)
+cmake_minimum_required(VERSION 3.18)
 
 # gnu directories
 include(GNUInstallDirs)
@@ -18,87 +18,42 @@ endif()
 find_package(Qt6 COMPONENTS Quick Qml REQUIRED)
 
 # enable autogeneration of moc files
-set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
+# output directory for qt files
+set(QT_QML_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/qml)
+
 # library definition
-add_library(
-    IzLibraryPlugin
-SHARED
-    ""
+qt_add_library(
+    IzLibrary
+    SHARED
 )
 
-target_sources(
-    IzLibraryPlugin
-PRIVATE
-    "private/QmlPlugin.cpp"
-    "private/CountdownTimer.cpp"
-    "private/DoubleValidator.cpp"
-    "private/IntValidator.cpp"
-    "include/IzLibrary/CountdownTimer.h"
-    "include/IzLibrary/DoubleValidator.h"
-    "include/IzLibrary/IntValidator.h"
-    "include/IzLibrary/IzLibrary_Enums.h"
-    "include/IzLibrary/QmlPlugin.h"
-)
-
-set_target_properties(
-    IzLibraryPlugin
-PROPERTIES
-    PREFIX ""
-)
-
-# include directories for target
-target_include_directories(
-    IzLibraryPlugin
-PUBLIC
-    $<INSTALL_INTERFACE:include>
-    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
-PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}/private
-)
-
-# target compile features
-target_compile_features(
-    IzLibraryPlugin
-PRIVATE
-    cxx_std_17
-)
-
-# target links
-target_link_libraries(
-    IzLibraryPlugin
-PUBLIC
-    Qt6::Quick
-    Qt6::Qml
+# qml module
+qt_add_qml_module(
+    IzLibrary
+VERSION
+    1.0
+URI
+    IzLibrary
+QML_FILES
+    module/qml/IzText.qml
 )
 
 # target compile definitions
 target_compile_definitions(
-    IzLibraryPlugin
+    IzLibrary
 PRIVATE
     QT_USE_QSTRINGBUILDER
+    cxx_std_17
 )
 
 # installs
-include(GNUInstallDirs)
 install(
-    TARGETS IzLibraryPlugin
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/${CMAKE_BUILD_TYPE}/${Qt6Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}/IzLibrary
+    TARGETS IzLibrary
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}/${CMAKE_BUILD_TYPE}/Qt-${Qt6Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}/IzLibrary
 )
 
-install(
-    FILES "${CMAKE_CURRENT_SOURCE_DIR}/include/IzLibrary/qmldir"
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}/${CMAKE_BUILD_TYPE}/${Qt6Core_VERSION}/${CMAKE_CXX_COMPILER_ID}/${PLATFORM_TARGET}/IzLibrary
-)
-
-#TODO: hack #1 - przekazywanie zmiennych do skryptu instalacyjnego
-install(CODE "set(PROJECT_NAME \"IzLibrary\")")
-install(CODE "set(PROJECT_VERSION \"${PROJECT_VERSION}\")")
-install(CODE "set(CMAKE_BUILD_TYPE \"${CMAKE_BUILD_TYPE}\")")
-install(CODE "set(Qt6Core_VERSION \"${Qt6Core_VERSION}\")")
-install(CODE "set(CMAKE_CXX_COMPILER_ID \"${CMAKE_CXX_COMPILER_ID}\")")
-install(CODE "set(PLATFORM_TARGET \"${PLATFORM_TARGET}\")")
-install(CODE "set(QT_QMAKE_EXECUTABLE \"${QT_QMAKE_EXECUTABLE}\")")
-install(SCRIPT "${CMAKE_CURRENT_SOURCE_DIR}/QmlPluginDump.cmake")
+# add example app
+add_subdirectory(example-app)

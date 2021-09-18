@@ -3,6 +3,7 @@
 #include <QElapsedTimer>
 #include <QObject>
 #include <QTimer>
+#include <qqml.h>
 
 namespace IzLibrary
 {
@@ -17,6 +18,7 @@ namespace IzLibrary
         Q_PROPERTY(bool running READ isRunning NOTIFY runningChanged)
         Q_PROPERTY(qint64 elapsed READ elapsed NOTIFY elapsedChanged)
         Q_PROPERTY(qint64 left READ left NOTIFY elapsedChanged)
+        QML_ELEMENT
 
     public:
         explicit CountdownTimer(QObject* parent = nullptr);
